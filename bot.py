@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from selenium.webdriver.common.keys import Keys
 import time
 import config
+from playsound import playsound
 
 driver = webdriver.Chrome(config.chromedriver_location)
 driver.get('https://fp.trafikverket.se/boka/#/licence')
@@ -69,11 +70,14 @@ def book_time(first_date, last_date):
             if t:
                 button = t.find_element_by_xpath(f"//*[text()='Välj']")
                 button.click()
+                playsound('alert.mp3')
+                return False
         except:
             pass
         finally:
             if first_date <= last_date:
                 first_date = first_date + timedelta(days=1)
+    return True
 
 
 ## continue regardless of strings existance
@@ -98,7 +102,7 @@ while continue_running:
         time.sleep(3)
         select_location(i)
         time.sleep(3)
-        book_time(config.dates[0], config.dates[1])
+        continue_running = book_time(config.dates[0], config.dates[1])
         time.sleep(3)
     driver.refresh()
     time.sleep(3)
