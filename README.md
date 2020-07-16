@@ -13,6 +13,11 @@ Se https://www.w3schools.com/python/python_strings.asp för strings dokumentatio
 Se https://www.w3schools.com/python/python_lists.asp  för lists dokumentation  
 Se LICENSE
 
+## Donationer
+Om du känner för att bidra till mina körlektioner så kan du donera en slant nedan:  
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H76THWVZQ7KA4)
+
+
 ### 1. Installera nödvändiga paket
 > pip install -r requirements.txt
 
