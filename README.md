@@ -13,7 +13,7 @@ Skripten har endast testats vid bokning av körprov B.
 > Installera samma version som du har på google chrome
 
 ### 3. Fyll i config.py
-> Skapa och fyll i config.py (se config_sample.py)
+> Döp om config_sample.py till config.py
 > Texten måste matcha den på hemsidan. Gå igenom manuellt och fyll i.
 
 #### 1. chromedriver_location
