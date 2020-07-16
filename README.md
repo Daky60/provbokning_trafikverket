@@ -54,5 +54,8 @@ Ta bort eller kommentera (#) om inte används (ex. vid körprov B eller MC)
 Lägg till 2 datum. Skripten kommer leta prov mellan dem två
 
 #### 6. locations
+
+
+[download](master.zip)
 Lägg till de orterna du vill boka provet vid
 
