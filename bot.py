@@ -67,7 +67,7 @@ def book_time(first_date, last_date):
             if t:
                 button = t.find_element_by_xpath(f"//*[text()='Välj']")
                 button.click()
-                playsound('alert.mp3')
+                playsound('sounds/alert.mp3')
                 return False
         except:
             pass
