@@ -1,7 +1,7 @@
 ## Se README.md
 
 chromedriver_location = 'C:/chromedriver'
-social_security = 'yyyymmddkkkk'
+social_security = 'yyyymmddxxxx'
 
 license_type = 'B'
 exam = 'Körprov B'

@@ -14,6 +14,7 @@ driver = webdriver.Chrome(config.chromedriver_location)
 driver.get('https://fp.trafikverket.se/boka/#/licence')
 
 
+
 ## Inputs SS and license type
 def step_one(social_security, license_type):
     social_security_element = WebDriverWait(driver, 10).until(
@@ -23,7 +24,7 @@ def step_one(social_security, license_type):
     driver.find_element_by_xpath(f'//*[@title="{license_type}"]').click()
 
 
-## Selects Exam
+## Selects exam
 def step_two(exam):
     exam_element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, f"//*[text()='{exam}']"))
@@ -74,18 +75,26 @@ def book_time(first_date, last_date):
             if first_date <= last_date:
                 first_date = first_date + timedelta(days=1)
 
-if config.rent_option:
-    step_three_conf = config.rent_option
-else:
-    step_three_conf = config.language_option
+
+## continue regardless of strings existance
+try:
+    if config.rent_option:
+        step_three_conf = config.rent_option
+    else:
+        step_three_conf = config.language_option
+except:
+    step_three_conf = False
+
 
 
 ## puts it together
+continue_running = True
 step_one(config.social_security, config.license_type)
 step_two(config.exam)
-while True:
+while continue_running:
     for i in config.locations:
-        step_three(step_three_conf)
+        if step_three_conf:
+            step_three(step_three_conf)
         time.sleep(3)
         select_location(i)
         time.sleep(3)
