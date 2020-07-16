@@ -1,18 +1,18 @@
 # boka_prov_trafikverket
-Skript som söker efter förarprov inom de uppsatta ramarna.
+Skript som söker efter förarprov inom de uppsatta ramarna.  
 Skripten bokar inga tider själv utan tiden läggs i varukorgen som då blir reserverad i 15 minuter.
 
 
 
 ## Varning
-Skripten har endast testats vid bokning av körprov B men bör funka för de flesta proven.
+Skripten har endast testats vid bokning av körprov B men bör funka för de flesta proven.  
 Se LICENSE
 
 ### 1. Installera nödvändiga paket
 > pip install -r requirements.txt
 
 ### 2. Installera chromedriver
-Se: https://sites.google.com/a/chromium.org/chromedriver/home
+Se: https://sites.google.com/a/chromium.org/chromedriver/home  
 Installera samma version som du har på google chrome
 
 ### 3. Fyll i config.py
