@@ -1,8 +1,6 @@
 # boka_prov_trafikverket
 Skript som söker efter förarprov inom de uppsatta ramarna.  
 Skripten bokar inga tider själv utan tiden läggs i varukorgen som då blir reserverad i 15 minuter.  
-Du måste alltså vara närvarande vid datorn och hålla lite koll.  
-Första bästa tid väljs i enlighet med config.py  
 Ett ljud kommer spelas upp när en tid har hittats.
 
 
