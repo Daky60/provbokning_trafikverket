@@ -7,16 +7,18 @@ Ett ljud kommer spelas upp när en tid har hittats.
 ## VIKTIGT
 Skripten har endast testats vid bokning av körprov B men bör funka för de flesta proven.  
 config.py måste matcha det som står på hemsidan. Står det t.ex. "Ja, manuell" på hemsidan ang. hyrbil så måste det stå precis så i config.py  
-Följ https://code.visualstudio.com/docs/python/python-tutorial om du är osäker på hur man kör skripten  
-Fyll i config.py i samma format. Se nedan  
+Följ https://code.visualstudio.com/docs/python/python-tutorial om du är osäker på hur man kör skripten   
 Se https://www.w3schools.com/python/python_strings.asp för strings dokumentation  
 Se https://www.w3schools.com/python/python_lists.asp  för lists dokumentation  
 Se LICENSE
 
+
 ## Donationer
 Om du känner för att bidra till mina körlektioner så kan du donera en slant nedan:  
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H76THWVZQ7KA4)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H76THWVZQ7KA4)  
 
+
+## Installation
 
 ### 1. Installera nödvändiga paket
 > pip install -r requirements.txt
