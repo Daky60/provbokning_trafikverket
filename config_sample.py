@@ -1,6 +1,6 @@
 ## Se README.md
 
-chromedriver_location = 'C:/chromedriver'
+chromedriver_location = 'chromedriver'
 social_security = 'yyyymmddxxxx'
 
 license_type = 'B'
