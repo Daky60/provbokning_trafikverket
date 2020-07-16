@@ -1,4 +1,4 @@
-# boka_prov_trafikverket
+# provbokning_trafikverket
 En skript som automatiskt söker efter förarprov.  
 Skripten bokar inga tider själv utan tiden läggs i varukorgen som då blir reserverad i 15 minuter.  
 Ett ljud kommer spelas upp när en tid har hittats.
