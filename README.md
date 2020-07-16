@@ -34,7 +34,7 @@ Döp om config_sample.py till config.py
 Texten måste matcha den på hemsidan. Gå igenom manuellt och fyll i.
 
 #### 1. chromedriver_location
-Lägg chromedriver.exe i C:/ eller ändra config.py till filens sökväg
+Lägg chromedriver.exe i samma mapp eller ändra config.py till filens sökväg
 
 #### 2. license_type
 Lägg till behörigheten du vill boka prov inför (ex. B, B96, Buss etc)
