@@ -17,7 +17,8 @@ Se LICENSE
 
 ### 2. Installera chromedriver
 Se: https://sites.google.com/a/chromium.org/chromedriver/home  
-Installera samma version som du har på google chrome
+Installera samma version som du har på google chrome  
+Se: chrome://settings/help
 
 ### 3. Fyll i config.py
 Döp om config_sample.py till config.py
