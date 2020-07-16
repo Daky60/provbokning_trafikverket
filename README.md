@@ -1,5 +1,5 @@
 # boka_prov_trafikverket
-Skript som söker efter förarprov inom de uppsatta ramarna.  
+En skript som automatiskt söker efter förarprov.  
 Skripten bokar inga tider själv utan tiden läggs i varukorgen som då blir reserverad i 15 minuter.  
 Ett ljud kommer spelas upp när en tid har hittats.
 
@@ -7,7 +7,7 @@ Ett ljud kommer spelas upp när en tid har hittats.
 ## VIKTIGT
 Skripten har endast testats vid bokning av körprov B men bör funka för de flesta proven.  
 config.py måste matcha det som står på hemsidan. Står det t.ex. "Ja, manuell" på hemsidan ang. hyrbil så måste det stå precis så i config.py  
-Följ https://code.visualstudio.com/docs/python/python-tutorial om du är osäker på hur man kör skripten   
+Följ https://code.visualstudio.com/docs/python/python-tutorial för att ladda ned Python och VSCode  
 Se https://www.w3schools.com/python/python_strings.asp för strings dokumentation  
 Se https://www.w3schools.com/python/python_lists.asp  för lists dokumentation  
 Se LICENSE
