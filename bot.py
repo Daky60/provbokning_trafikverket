@@ -8,18 +8,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
 from selenium.webdriver.common.keys import Keys
 import time
+import config
 
-social_security = ''
-license_type = 'B'
-exam = 'Körprov B'
-rent_option = 'Ja, automat'
-first_date = '2020-07-16'
-second_first_date = '2020-08-04'
-last_date = '2020-07-26'
-second_last_date = '2020-08-31'
-loc = ['Sollentuna', 'Järfälla']
-
-driver = webdriver.Chrome("C:\chromedriver")
+driver = webdriver.Chrome(config.chromedriver_location)
 driver.get('https://fp.trafikverket.se/boka/#/licence')
 
 
@@ -41,16 +32,20 @@ def step_two(exam):
     exam_element_parent.click()
 
 
-## Selects rent option
-def step_three(rent_option=None):
+## Selects rent or language option
+def step_three(rent_option=None, language_option=None):
     if rent_option:
         rent_element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{rent_option}']"))
         )
         rent_element.click()
+    if language_option:
+        language_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, f"//select[@id='language-select']/option[text()='{rent_option}']"))
+        )
+        language_element.click()
 
 
-# Page 3
 ## Selects location
 def select_location(loc):
     location_element = WebDriverWait(driver, 10).until(
@@ -79,19 +74,22 @@ def book_time(first_date, last_date):
             if first_date <= last_date:
                 first_date = first_date + timedelta(days=1)
 
+if config.rent_option:
+    step_three_conf = config.rent_option
+else:
+    step_three_conf = config.language_option
 
 
 ## puts it together
-step_one(social_security, license_type)
-step_two(exam)
+step_one(config.social_security, config.license_type)
+step_two(config.exam)
 while True:
-    for i in loc:
-        step_three(rent_option)
+    for i in config.locations:
+        step_three(step_three_conf)
         time.sleep(3)
         select_location(i)
         time.sleep(3)
-        book_time(first_date, last_date)
-        book_time(second_first_date, second_last_date)
+        book_time(config.dates[0], config.dates[1])
         time.sleep(3)
     driver.refresh()
     time.sleep(3)
