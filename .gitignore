@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 config.py
+test.py
 chromedriver.exe
 # C extensions
 *.so
@@ -26,6 +27,7 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.vscode
 MANIFEST
 
 # PyInstaller
