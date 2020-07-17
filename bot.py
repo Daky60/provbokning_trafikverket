@@ -8,7 +8,7 @@ import time
 import config
 from playsound import playsound
 
-driver = webdriver.Chrome(config.chromedriver_location)
+driver = webdriver.Chrome('chromedriver')
 driver.get('https://fp.trafikverket.se/boka/#/licence')
 
 
