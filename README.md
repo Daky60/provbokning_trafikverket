@@ -5,7 +5,7 @@ Ett ljud kommer spelas upp i ca 1 minut när en tid har hittats.
 ---
 
 ## VIKTIGT
-Skripten har endast testats vid ett fåtal bokningar, då främst för förarprov B.  
+Skriptet har endast testats vid ett fåtal bokningar, då främst för förarprov B.  
 
 ---
 
