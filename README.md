@@ -19,12 +19,12 @@ Fattig student osv. Bidra med en slant om du kan och vill. Det uppskattas:
 ## Installation (Windows)
 
 ### 1. Ladda ner alla filer
-1. Ladda ner alla filer här: https://github.com/Daky60/provbokning_trafikverket/archive/master.zip  
+1. Ladda ner alla filer här: [master.zip](https://github.com/Daky60/provbokning_trafikverket/archive/master.zip)  
 2. Packa upp mappen och lägg den på skrivbordet
 
 ### 2. Installera ChromeDriver
 1. Ladda ner: https://sites.google.com/a/chromium.org/chromedriver/downloads  
-2. Installera samma version som du har på Google Chrome (Gå till chrome://settings/help)  
+2. Installera samma version som du har på Google Chrome (Gå till chrome://settings/help i Chrome)  
 3. Lägg chromedriver.exe i provbokning_trafikverket-master
 
 ### 3. Installera Python
