@@ -29,7 +29,8 @@ Fattig student osv. Bidra med en slant om du kan och vill. Det uppskattas:
 1. Ladda ner Python här: https://www.python.org/downloads/  
 2. Öppna CMD i provbokning_trafikverket-master 
 > SHIFT + Högerklick + W (gör detta i provbokning_trafikverket-master)  
-> Alternativ lösning: öppna cmd och skriv cd desktop/provbokning_trafikverket-master  
+Alternativ lösning: öppna cmd och skriv:  
+> cd desktop/provbokning_trafikverket-master  
 3. Skriv nedanstående kommando i CMD för att installera alla nödvändiga paket  
 > pip install -r requirements.txt
 
