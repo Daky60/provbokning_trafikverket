@@ -94,12 +94,15 @@ step_one(config.social_security, config.license_type)
 step_two(config.exam)
 while continue_running:
     for i in config.locations:
-        if step_three_conf:
-            step_three(step_three_conf)
-        time.sleep(3)
-        select_location(i)
-        time.sleep(3)
-        continue_running = book_time(config.dates[0], config.dates[1])
-        time.sleep(3)
-    driver.refresh()
-    time.sleep(3)
+        if continue_running:
+            if step_three_conf:
+                step_three(step_three_conf)
+            time.sleep(3)
+            select_location(i)
+            time.sleep(3)
+            continue_running = book_time(config.dates[0], config.dates[1])
+            if not continue_running:
+                break
+            time.sleep(3)
+            driver.refresh()
+            time.sleep(3)
