@@ -106,3 +106,5 @@ while continue_running:
             time.sleep(3)
             driver.refresh()
             time.sleep(3)
+
+driver.quit()
