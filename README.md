@@ -3,16 +3,20 @@ Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minut
 Skripten bokar inga tider själv utan tiden läggs i varukorgen som då blir reserverad i 15 minuter.  
 Ett ljud kommer spelas upp när en tid har hittats.
 
+---
 
 ## VIKTIGT
 Skripten har endast testats vid ett fåtal bokningar, då främst för förarprov B.  
 Läs LICENSE
+
+---
 
 ## Donationer
 Fattig student osv. Bidra med en slant om du kan och vill. Det uppskattas:  
   
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H76THWVZQ7KA4)  
 
+---
 
 ## Installation (Windows)
 
@@ -46,6 +50,7 @@ Kör skripten och ändra allteftersom
 > python bot.py
 2. Skripten kan avbrytas med CTRL + C
 
+---
 
 ## config.py
 
@@ -75,3 +80,11 @@ Skripten kommer leta efter tider mellan de två datumen
 ### 6. locations
 Lägg till de orterna du vill boka provet vid
 
+---
+
+## License
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2020 © Daky
