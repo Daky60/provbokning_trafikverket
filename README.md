@@ -34,7 +34,7 @@ Fattig student osv. Bidra med en slant om du kan och vill. Det uppskattas:
 > pip install -r requirements.txt
 
 ### 4. Fyll i config.py
-1. Döp om config.sample.py till config.py  
+Döp om config.sample.py till config.py  
 Texten måste matcha som det står på trafikverkets hemsida.  
 Gå igenom sidan manuellt från https://fp.trafikverket.se/boka/#/licence och kontrollera, alternativt,  
 Kör skripten och ändra allteftersom
