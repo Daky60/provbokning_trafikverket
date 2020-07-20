@@ -14,7 +14,33 @@ driver.get('https://fp.trafikverket.se/boka/#/licence')
 
 
 ## Incorrect config handling
-## TBA
+try:
+    ### social security
+    if len(config.social_security) != 12:
+        print('social_security may be configured incorrectly')
+        print('social_security:', config.social_security)
+    ### license_type 
+    if not config.license_type[0].isupper():
+        print('license_type may be configured incorrectly')
+        print('license_type:', config.license_type)
+    if ('Körprov' not in config.exam and 'Kunskapsprov' not in config.exam) or config.exam[-1] != config.license_type:
+        print('exam or license_type may be configured incorrectly')
+        print('exam:', config.exam)
+        print('license_type:', config.license_type)
+    if config.rent_option and config.language_option:
+        print('rent_option or rent_option may be configured incorrectly')
+        print('you should probably remove one')
+        print('rent_option:', config.rent_option)
+        print('language_option:', config.language_option)
+    if (len(config.dates) % 2) != 0 or not isinstance(type(config.dates), list):
+        print('dates may be configured incorrectly')
+        print('dates:', config.dates)
+    if not isinstance(type(config.locations), list):
+        print('locations may be configured incorrectly')
+        print('locations:', config.locations)
+    print('Read README.md and configure config.py before running script')
+except:
+    pass
 
 
 
@@ -38,46 +64,54 @@ def step_two(exam):
 
 ## Selects rent or language option
 def step_three(rent_option=None, language_option=None):
-    if rent_option:
-        rent_element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{rent_option}']"))
-        )
-        rent_element.click()
-    if language_option:
-        language_element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, f"//select[@id='language-select']/option[text()='{rent_option}']"))
-        )
-        language_element.click()
+    try:
+        if rent_option:
+            rent_element = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{rent_option}']"))
+            )
+            rent_element.click()
+        if language_option:
+            language_element = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='language-select']/option[text()='{rent_option}']"))
+            )
+            language_element.click()
+    except:
+        pass
 
 
 ## Selects location
 def select_location(loc):
-    location_element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "id-control-searchText"))
-    )
-    location_element.clear()
-    location_element.send_keys(loc, Keys.ENTER)
-
+    try:
+        location_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "id-control-searchText"))
+        )
+        location_element.clear()
+        location_element.send_keys(loc, Keys.ENTER)
+    except:
+        pass
 
 ## Finds and selects available time based on arguments
 def book_time(first_date, last_date):
-    WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, f"//*[text()='Lediga provtider']"))
-    )
-    first_date = datetime.strptime(first_date, '%Y-%m-%d').date()
-    last_date = datetime.strptime(last_date, '%Y-%m-%d').date()
-    while first_date < last_date:
-        try:
-            find_date = driver.find_element_by_xpath(f"//*[contains(text(), '{str(first_date)}')]")
-            if find_date:
-                find_date_button = find_date.find_element_by_xpath(f"//*[text()='Välj']")
-                find_date_button.click()
-                return False
-        except:
-            pass
-        finally:
-            if first_date <= last_date:
-                first_date = first_date + timedelta(days=1)
+    try:
+        WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, f"//*[text()='Lediga provtider']"))
+        )
+        first_date = datetime.strptime(first_date, '%Y-%m-%d').date()
+        last_date = datetime.strptime(last_date, '%Y-%m-%d').date()
+        while first_date < last_date:
+            try:
+                find_date = driver.find_element_by_xpath(f"//*[contains(text(), '{str(first_date)}')]")
+                if find_date:
+                    find_date_button = find_date.find_element_by_xpath(f"//*[text()='Välj']")
+                    find_date_button.click()
+                    return False
+            except:
+                pass
+            finally:
+                if first_date <= last_date:
+                    first_date = first_date + timedelta(days=1)
+    except:
+        pass
     return True
 
 
@@ -109,12 +143,13 @@ while continue_running:
             ## for handling multiple timespans
             for j in range(0, len(config.dates), 2):
                 continue_running = book_time(config.dates[j], config.dates[j+1])
+                time.sleep(1)
                 if not continue_running:
                     timestamp = datetime.now() + timedelta(minutes=15)
                     while datetime.now() < timestamp:
                         playsound('sounds/alert.mp3')
                     break
-            time.sleep(3)
+            time.sleep(1)
             driver.refresh()
             time.sleep(3)
 
