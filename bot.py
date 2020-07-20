@@ -13,6 +13,11 @@ driver.get('https://fp.trafikverket.se/boka/#/licence')
 
 
 
+## Incorrect config handling
+## TBA
+
+
+
 ## Inputs SS and license type
 def step_one(social_security, license_type):
     social_security_element = WebDriverWait(driver, 10).until(
@@ -63,11 +68,10 @@ def book_time(first_date, last_date):
     last_date = datetime.strptime(last_date, '%Y-%m-%d').date()
     while first_date < last_date:
         try:
-            t = driver.find_element_by_xpath(f"//*[contains(text(), '{str(first_date)}')]")
-            if t:
-                button = t.find_element_by_xpath(f"//*[text()='Välj']")
-                button.click()
-                playsound('sounds/alert.mp3')
+            find_date = driver.find_element_by_xpath(f"//*[contains(text(), '{str(first_date)}')]")
+            if find_date:
+                find_date_button = find_date.find_element_by_xpath(f"//*[text()='Välj']")
+                find_date_button.click()
                 return False
         except:
             pass
@@ -89,9 +93,11 @@ except:
 
 
 ## puts it together
+## initial pages etc
 continue_running = True
 step_one(config.social_security, config.license_type)
 step_two(config.exam)
+## final page
 while continue_running:
     for i in config.locations:
         if continue_running:
@@ -100,9 +106,14 @@ while continue_running:
             time.sleep(3)
             select_location(i)
             time.sleep(3)
-            continue_running = book_time(config.dates[0], config.dates[1])
-            if not continue_running:
-                break
+            ## for handling multiple timespans
+            for j in range(0, len(config.dates), 2):
+                continue_running = book_time(config.dates[j], config.dates[j+1])
+                if not continue_running:
+                    timestamp = datetime.now() + timedelta(minutes=15)
+                    while datetime.now() < timestamp:
+                        playsound('sounds/alert.mp3')
+                    break
             time.sleep(3)
             driver.refresh()
             time.sleep(3)

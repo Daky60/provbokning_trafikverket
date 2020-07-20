@@ -1,11 +1,12 @@
 # provbokning_trafikverket
 Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minuter.  
-Ett ljud kommer spelas upp i ca 1 minut när en tid har hittats.
+Ett ljud kommer spelas upp i 15 minuter när en tid har hittats.
 
 ---
 
 ## VIKTIGT
 Skriptet har endast testats vid ett fåtal bokningar, då främst för förarprov B.  
+Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning. Ljudet kommer dock fortfarande spelas upp.
 
 ---
 
@@ -41,9 +42,9 @@ Alternativ lösning: öppna cmd och skriv:
 Döp om config.sample.py till config.py  
 Texten måste matcha som det står på trafikverkets hemsida.  
 Gå igenom sidan manuellt från https://fp.trafikverket.se/boka/#/licence och kontrollera, alternativt,  
-Kör skripten och ändra allteftersom
+Kör skriptet och ändra allteftersom
 
-### 5. Kör skripten
+### 5. Kör skriptet
 1. Skriv nedanstående kommando i CMD (Se #3 om du stängde ned rutan)  
 > python bot.py
 2. Skripten kan avbrytas med CTRL + C
@@ -72,8 +73,9 @@ Radera eller kommentera (#) om inte används (ex. vid körprov B eller MC)
 Ta bort # ifall används
 
 ### 5. dates
-Lägg till 2 datum i ISO 8601 format (yyyy-mm-dd)  
-Skripten kommer leta efter tider mellan de två datumen
+Lägg till datum i par i ISO 8601 format (yyyy-mm-dd)  
+Skriptet kommer leta efter tider mellan de två datumen  
+Fler tidsperioder kan läggas till (ex. dates = ['2020-07-22', '2020-07-25', '2020-08-05', '2020-08-30'])
 
 ### 6. locations
 Lägg till de orterna du vill boka provet vid
