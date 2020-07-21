@@ -10,3 +10,4 @@ rent_option = 'Ja, manuell'
 
 dates = ['2020-08-31', '2020-09-30']
 locations = ['Sollentuna', 'Järfälla', 'Farsta']
+wait_time = 2 

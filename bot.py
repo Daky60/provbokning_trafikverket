@@ -10,11 +10,13 @@ from playsound import playsound
 
 driver = webdriver.Chrome('chromedriver')
 driver.get('https://fp.trafikverket.se/boka/#/licence')
+driver.implicitly_wait(config.wait_time/10) ## seconds
 
 
 
 ## Incorrect config handling
 try:
+    print('Read README.md and configure config.py before running script')
     ### social security
     if len(config.social_security) != 12:
         print('social_security may be configured incorrectly')
@@ -38,7 +40,6 @@ try:
     if not isinstance(type(config.locations), list):
         print('locations may be configured incorrectly')
         print('locations:', config.locations)
-    print('Read README.md and configure config.py before running script')
 except:
     pass
 
@@ -128,29 +129,36 @@ except:
 
 ## puts it together
 ## initial pages etc
-continue_running = True
 step_one(config.social_security, config.license_type)
+time.sleep(config.wait_time)
 step_two(config.exam)
+time.sleep(config.wait_time)
 ## final page
-while continue_running:
-    for i in config.locations:
-        if continue_running:
-            if step_three_conf:
-                step_three(step_three_conf)
-            time.sleep(3)
-            select_location(i)
-            time.sleep(3)
-            ## for handling multiple timespans
-            for j in range(0, len(config.dates), 2):
-                continue_running = book_time(config.dates[j], config.dates[j+1])
-                time.sleep(1)
-                if not continue_running:
-                    timestamp = datetime.now() + timedelta(minutes=15)
-                    while datetime.now() < timestamp:
-                        playsound('sounds/alert.mp3')
-                    break
-            time.sleep(1)
-            driver.refresh()
-            time.sleep(3)
+def final_page():
+    continue_running = True
+    while continue_running:
+        for i in config.locations:
+            try:
+                if continue_running:
+                    if step_three_conf:
+                        step_three(step_three_conf)
+                    select_location(i)
+                    time.sleep(config.wait_time/2)
+                    ## for handling multiple timespans
+                    for j in range(0, len(config.dates), 2):
+                        continue_running = book_time(config.dates[j], config.dates[j+1])
+                        time.sleep(config.wait_time/4)
+                        if not continue_running:
+                            timestamp = datetime.now() + timedelta(minutes=15)
+                            while datetime.now() < timestamp:
+                                playsound('sounds/alert.mp3')
+                            break
+                    driver.refresh()
+            except:
+                pass
+
+
+if __name__ == '__main__':
+    final_page()
 
 driver.quit()

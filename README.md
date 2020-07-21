@@ -80,6 +80,11 @@ Fler tidsperioder kan läggas till (ex. dates = ['2020-07-22', '2020-07-25', '20
 ### 6. locations
 Lägg till de orterna du vill boka provet vid
 
+### 7. wait_time
+Anger hur många sekunder skriptet ska vänta mellan handlingar.  
+Sänk eller höj beroende på dator- och internethastighet.  
+Rekommenderas att vara på minst 2 sekunder.
+
 ---
 
 ## License
