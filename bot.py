@@ -84,7 +84,7 @@ def step_three(rent_option=None, language_option=None):
 def select_location(loc):
     try:
         location_element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "id-control-searchText"))
+            EC.presence_of_element_located((By.ID, "id-control-searchText-1-1"))
         )
         location_element.clear()
         location_element.send_keys(loc, Keys.ENTER)
