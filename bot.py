@@ -64,16 +64,16 @@ def step_two(exam):
 
 
 ## Selects rent or language option
-def step_three(rent_option=None, language_option=None):
+def step_three(option_type=None, option_value=None):
     try:
-        if rent_option:
+        if option_type == "rent":
             rent_element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{rent_option}']"))
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{option_value}']"))
             )
             rent_element.click()
-        if language_option:
+        if option_type == "language":
             language_element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, f"//select[@id='language-select']/option[text()='{rent_option}']"))
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='language-select']/option[text()='{option_value}']"))
             )
             language_element.click()
     except:
@@ -84,7 +84,7 @@ def step_three(rent_option=None, language_option=None):
 def select_location(loc):
     try:
         location_element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, "id-control-searchText"))
+            EC.presence_of_element_located((By.ID, "id-control-searchText-1-1"))
         )
         location_element.clear()
         location_element.send_keys(loc, Keys.ENTER)
@@ -117,15 +117,20 @@ def book_time(first_date, last_date):
 
 
 ## continue regardless of strings existance
+
+step_three_conf = False;
 try:
     if config.rent_option:
+        step_three_conf_type = "rent"
+        step_three_conf_value = config.rent_option
         step_three_conf = config.rent_option
-    else:
-        step_three_conf = config.language_option
+        step_three_conf = True
+    if config.language_option:
+        step_three_conf_type = "language"
+        step_three_conf_value = config.language_option
+        step_three_conf = True
 except:
-    step_three_conf = False
-
-
+    pass
 
 ## puts it together
 ## initial pages etc
@@ -140,8 +145,8 @@ def final_page():
         for i in config.locations:
             try:
                 if continue_running:
-                    if step_three_conf:
-                        step_three(step_three_conf)
+                    if step_three_conf_type and step_three_conf_value:
+                        step_three(step_three_conf_type, step_three_conf_value)
                     select_location(i)
                     time.sleep(config.wait_time/2)
                     ## for handling multiple timespans
