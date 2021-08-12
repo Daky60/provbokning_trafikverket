@@ -145,7 +145,7 @@ def final_page():
         for i in config.locations:
             try:
                 if continue_running:
-                    if step_three_conf_type and step_three_conf_value:
+                    if step_three_conf and step_three_conf_type and step_three_conf_value:
                         step_three(step_three_conf_type, step_three_conf_value)
                     select_location(i)
                     time.sleep(config.wait_time/2)
