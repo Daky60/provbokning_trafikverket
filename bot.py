@@ -25,7 +25,7 @@ try:
     if not config.license_type[0].isupper():
         print('license_type may be configured incorrectly')
         print('license_type:', config.license_type)
-    if ('Körprov' not in config.exam and 'Kunskapsprov' not in config.exam) or config.exam[-1] != config.license_type:
+    if ('Körprov' not in config.exam) or ('Kunskapsprov' not in config.exam):
         print('exam or license_type may be configured incorrectly')
         print('exam:', config.exam)
         print('license_type:', config.license_type)
@@ -34,10 +34,10 @@ try:
         print('you should probably remove one')
         print('rent_option:', config.rent_option)
         print('language_option:', config.language_option)
-    if (len(config.dates) % 2) != 0 or not isinstance(type(config.dates), list):
+    if (len(config.dates) % 2) != 0 or not type(config.dates) == list:
         print('dates may be configured incorrectly')
         print('dates:', config.dates)
-    if not isinstance(type(config.locations), list):
+    if not type(config.locations) == list:
         print('locations may be configured incorrectly')
         print('locations:', config.locations)
 except:
@@ -56,11 +56,17 @@ def step_one(social_security, license_type):
 
 ## Selects exam
 def step_two(exam):
-    exam_element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, f"//*[text()='{exam}']"))
-    )
-    exam_element_parent = exam_element.find_element_by_xpath('..')
-    exam_element_parent.click()
+    try:
+        exam_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, f"//*[text()='{exam}']"))
+        )
+        exam_element.click()
+        exam_element_parent = exam_element.find_element_by_xpath('..')
+        exam_element_parent.click()
+    except:
+        pass
+
+    
 
 
 ## Selects rent or language option
@@ -118,32 +124,34 @@ def book_time(first_date, last_date):
 
 ## continue regardless of strings existance
 
-step_three_conf = False;
-try:
-    if config.rent_option:
-        step_three_conf_type = "rent"
-        step_three_conf_value = config.rent_option
-        step_three_conf = config.rent_option
-        step_three_conf = True
-    if config.language_option:
-        step_three_conf_type = "language"
-        step_three_conf_value = config.language_option
-        step_three_conf = True
-except:
-    pass
 
 ## puts it together
 ## initial pages etc
 step_one(config.social_security, config.license_type)
-time.sleep(config.wait_time)
 step_two(config.exam)
 time.sleep(config.wait_time)
+time.sleep(config.wait_time)
 ## final page
+
 def final_page():
+    step_three_conf = False;
+    try:
+        if config.rent_option:
+            step_three_conf_type = "rent"
+            step_three_conf_value = config.rent_option
+            step_three_conf = config.rent_option
+            step_three_conf = True
+        if config.language_option:
+            step_three_conf_type = "language"
+            step_three_conf_value = config.language_option
+            step_three_conf = True
+    except:
+        pass
     continue_running = True
     while continue_running:
         for i in config.locations:
             try:
+                step_two(config.exam)
                 if continue_running:
                     if step_three_conf and step_three_conf_type and step_three_conf_value:
                         step_three(step_three_conf_type, step_three_conf_value)

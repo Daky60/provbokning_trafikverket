@@ -1,19 +1,17 @@
 ## Se README.md
 
 social_security = 'yyyymmddxxxx'
-
 license_type = 'B'
 
 ## For written exam
-#exam = 'Kunskapsprov B'
-#rent_option = False
+#exam = 'Kunskapsprov'
 #language_option = 'Svenska'
 
 ## For driving test
-exam = 'Körprov B'
+exam = 'Körprov'
 rent_option = 'Ja, manuell'
-language_option = False
 
-dates = ['2020-08-31', '2020-09-30']
+dates = ['2021-10-26', '2021-12-20']
 locations = ['Sollentuna', 'Järfälla', 'Farsta']
-wait_time = 2 
+
+wait_time = 2 ##
