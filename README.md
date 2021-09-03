@@ -5,16 +5,14 @@ Ett ljud kommer spelas upp i 15 minuter när en tid har hittats.
 ---
 
 ## VIKTIGT
-Skriptet har endast testats vid ett fåtal bokningar, då främst för förarprov B.  
 Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning. Ljudet kommer dock fortfarande spelas upp.
 
 ---
 
-## Donationer
-Fattig student osv. Bidra med en slant om du kan och vill. Det uppskattas:  
-  
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H76THWVZQ7KA4)  
-
+## Donationer & Hjälp
+Om du vill visa lite uppskattning, swisha gärna en slant till 073 554 71 85
+Kontakta inte mig per telefon utan gör det helst via discord #Daky6387
+All kontakt per telefon kommer ignoreras
 ---
 
 ## Installation (Windows)
@@ -60,7 +58,7 @@ Fyll i ditt personnummer med formatet yyyymmddxxxx (Inga mellanrum, bindestreck 
 Lägg till behörigheten du vill boka prov inför (ex. B, B96, Buss etc)
 
 ### 3. exam
-Lägg till vilket prov du vill boka (ex. Körprov B, Kunskapsprov B)
+Lägg till vilket prov du vill boka (ex. Körprov, Kunskapsprov)
 
 ### 4. rent_option
 Välj mellan ex. "Nej", "Ja, automat" eller "Ja, manuell".  
