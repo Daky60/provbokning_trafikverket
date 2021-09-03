@@ -13,6 +13,7 @@ Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräve
 Om du vill visa lite uppskattning, swisha gärna en slant till 073 554 71 85  
 Kontakta inte mig per telefon utan gör det helst via Discord Daky#6387  
 All kontakt per telefon kommer ignoreras
+
 ---
 
 ## Installation (Windows)
