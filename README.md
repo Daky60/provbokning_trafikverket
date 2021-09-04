@@ -1,12 +1,23 @@
 # provbokning_trafikverket
 Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minuter.  
-Ett ljud kommer spelas upp i 15 minuter när en tid har hittats.
+Ett ljud kommer spelas upp i 15 minuter när en tid har hittats.  
 
 ---
 
 ## VIKTIGT
 Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning. Ljudet kommer dock fortfarande spelas upp.
 
+---
+
+## Botv2.py - Helt automatisk provbokning
+Denna skript är lite mer teknisk och inte klar till hundra procent så kan finnas buggar m.m.  
+Jag har inte hunnit skriva en guide specifikt för den men om du vill testa skriptet ändå behöver du:  
+1. BankID  
+2. Telefonnummer & mail registrerat hos trafikverket när du loggar in  
+
+Kort förklarat så kommer den logga in med BankID. Du kommer behöva bekräfta i början och sen kör den på självständigt. Den kommer att boka första bästa tid med alternativt "Betala senare"  
+Du kan avboka gratis om det är mer än 24 timmar till provtillfället så undvik att leta tider inom 24 timmar om du inte är helt hundra på att du kan vilken tid som helst på dagen.  
+Ett ljud kommer spelar upp i cirka en minut och sen stängs allting ned. Trafikverket kommer maila m.m. om du lyckas boka en tid
 ---
 
 ## Donationer & Hjälp
