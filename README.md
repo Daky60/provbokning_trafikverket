@@ -10,9 +10,9 @@ Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräve
 ---
 
 ## Donationer & Hjälp
-Om du vill visa lite uppskattning, swisha gärna en slant till 073 554 71 85  
+Om du vill vara lite snäll, Swisha gärna en slant :) 073 554 71 85  
 Kontakta inte mig per telefon utan gör det helst via Discord Daky#6387  
-All kontakt per telefon kommer ignoreras
+Jag kommer förmodligen ignorera ditt försök att nå mig på telefon  
 
 ---
 
@@ -61,15 +61,10 @@ Lägg till behörigheten du vill boka prov inför (ex. B, B96, Buss etc)
 ### 3. exam
 Lägg till vilket prov du vill boka (ex. Körprov, Kunskapsprov)
 
-### 4. rent_option
-Välj mellan ex. "Nej", "Ja, automat" eller "Ja, manuell".  
-Radera eller kommentera (#) om inte används (ex. vid kunskapsprov B eller MC)  
-Ta bort # ifall används
-
-### 5. language_option
-Välj språk, ex. Svenska, Engelska.  
-Radera eller kommentera (#) om inte används (ex. vid körprov B eller MC)  
-Ta bort # ifall används
+### 4. rent_or_language
+Beroende på ifall du ska boka körprov eller kunskapsprov kommer det finnas alternativ för antingen språk eller hyrbil.  
+Ange exakt vad som står som alternativ (ex. "Svenska" eller "Ja, manuell") för att det ska fungera ordentligt.
+Om du ska boka ett prov utan någon av alternativen som exempelvis MC kort, ta bort eller kommentera ut raden med #
 
 ### 5. dates
 Lägg till datum i par i ISO 8601 format (yyyy-mm-dd)  
@@ -77,12 +72,7 @@ Skriptet kommer leta efter tider mellan de två datumen
 Fler tidsperioder kan läggas till (ex. dates = ['2020-07-22', '2020-07-25', '2020-08-05', '2020-08-30'])
 
 ### 6. locations
-Lägg till de orterna du vill boka provet vid
-
-### 7. wait_time
-Anger hur många sekunder skriptet ska vänta mellan handlingar.  
-Sänk eller höj beroende på dator- och internethastighet.  
-Rekommenderas att vara på minst 2 sekunder.
+Lägg till de orterna du vill boka provet vid (ex. locations = ['Järfälla', 'Sollentuna'])
 
 ---
 
