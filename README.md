@@ -1,11 +1,13 @@
 # provbokning_trafikverket
-Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minuter.  
-Ett ljud kommer spelas upp i 15 minuter när en tid har hittats.  
+Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minuter alternativt bokar dem åt dig.  
 
 ---
 
-## VIKTIGT
-Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning. Ljudet kommer dock fortfarande spelas upp.
+## Bot.py
+Denna skript är lite enklare och vad den gör är att den söker efter tider och när den väl hittat en så reservas tiden i 15 minuter.  
+Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning.  
+Ett ljud kommer spelas upp när en tid har hittats i 15 minuter.  
+Detta skript kräver inget BankID.
 
 ---
 
