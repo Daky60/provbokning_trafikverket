@@ -110,8 +110,6 @@ class SeleniumDriver():
                         find_date_button = find_date.find_element_by_xpath(f"//*[text()='Välj']")
                         find_date_button.click()
                         return False
-                except NoSuchElementException:
-                    print("Could not find element. Check config or report on Github")
                 except:
                     pass
                 finally:
@@ -132,8 +130,8 @@ class SeleniumDriver():
             print("Took too long to load")
         except NoSuchElementException:
             print("Could not find element. Check config or report on Github")
-        except Exception:
-            print("Something went wrong")
+        except: 
+            pass
     def confirm_booking(self):
         try:
             exam_element = WebDriverWait(self.driver, 10).until(
@@ -146,8 +144,8 @@ class SeleniumDriver():
             print("Took too long to load")
         except NoSuchElementException:
             print("Could not find element. Check config or report on Github")
-        except Exception:
-            print("Something went wrong")
+        except: 
+            pass
     def confirm_phone_number(self):
         try:
             phone_number_element = WebDriverWait(self.driver, 10).until(
@@ -161,8 +159,8 @@ class SeleniumDriver():
             print("Took too long to load")
         except NoSuchElementException:
             print("Could not find element. Check config or report on Github")
-        except Exception:
-            print("Something went wrong")
+        except: 
+            pass
     def confirm_last(self):
         try:
             exam_type_element = WebDriverWait(self.driver, 10).until(
@@ -175,8 +173,8 @@ class SeleniumDriver():
             print("Took too long to load")
         except NoSuchElementException:
             print("Could not find element. Check config or report on Github")
-        except Exception:
-            print("Something went wrong")
+        except: 
+            pass
 
 def find_exam(driver):
     driver.login()
