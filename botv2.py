@@ -14,7 +14,7 @@ class SeleniumDriver():
     def __init__(self):
         self.driver = webdriver.Chrome('chromedriver')
         self.driver.get('https://fp.trafikverket.se/boka/#/')
-        self.driver.implicitly_wait(0.2)
+        self.driver.implicitly_wait(0.1)
         self.continue_running = True
     def login(self):
         try:
@@ -175,6 +175,8 @@ class SeleniumDriver():
             print("Could not find element. Check config or report on Github")
         except: 
             pass
+    def refresh_page(self):
+        return self.driver.refresh()
 
 def find_exam(driver):
     driver.login()
@@ -187,13 +189,15 @@ def find_exam(driver):
         for i in config.locations:
             try:
                 driver.select_exam_type()
+                time.sleep(0.3)
                 driver.select_rent_or_language()
+                time.sleep(0.3)
                 if driver.continue_running:
                     driver.select_location(i)
-                    time.sleep(0.5)
+                    time.sleep(0.1)
                     for j in range(0, len(config.dates), 2):
                         driver.continue_running = driver.select_time(config.dates[j], config.dates[j+1])
-                        time.sleep(0.4)
+                        time.sleep(0.1)
                         if not driver.continue_running:
                             driver.book_exam()
                             time.sleep(5)
@@ -203,9 +207,9 @@ def find_exam(driver):
                             time.sleep(5)
                             driver.confirm_last()
                             playsound('sounds/alert.mp3')
-                    driver.refresh()
             except:
                 pass
-
+        driver.refresh_page()
+        time.sleep(1)
 if __name__ == '__main__':
     find_exam(SeleniumDriver())
