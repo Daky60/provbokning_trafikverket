@@ -36,7 +36,7 @@ Jag kommer förmodligen ignorera ditt försök att nå mig på telefon
 2. Packa upp mappen och lägg den på skrivbordet
 
 ### 2. Installera ChromeDriver
-1. Ladda ner: https://sites.google.com/a/chromium.org/chromedriver/downloads  
+1. Ladda ner: https://sites.google.com/chromium.org/driver/  
 2. Installera samma version som du har på Google Chrome (Gå till chrome://settings/help i Chrome)  
 3. Lägg chromedriver.exe i provbokning_trafikverket-master
 
