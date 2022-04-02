@@ -4,24 +4,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+chrome_options = Options()
+chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 import time
 import config
 from playsound import playsound
 
 class SeleniumDriver():
     def __init__(self):
-        self.driver = webdriver.Chrome('chromedriver')
+        self.driver = webdriver.Chrome('chromedriver', options=chrome_options)
         self.driver.get('https://fp.trafikverket.se/boka/#/licence')
         self.driver.implicitly_wait(0.1)
         self.continue_running = True
     def select_exam(self):
         try:
             while self.driver.title == "Förarprov - Bokning":
-                social_security_element = WebDriverWait(self.driver, 10).until(
+                WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.ID, "social-security-number-input"))
-                )
-                social_security_element.send_keys(config.social_security)
-                self.driver.find_element_by_xpath(f"//*[@title='{config.license_type}']").click()
+                ).send_keys(config.social_security)
+                self.driver.find_element(By.XPATH, f"//*[@title='{config.license_type}']").click()
         except:
             pass
     def select_exam_type(self):
@@ -29,17 +31,14 @@ class SeleniumDriver():
             exam_element = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, f"//*[text()='{(config.exam)}']"))
             )
-            exam_element.click()
-            exam_element_parent = exam_element.find_element_by_xpath('..')
-            exam_element_parent.click()
+            exam_element.find_element(By.XPATH, '..').click()
         except:
             pass
     def select_rent_or_language(self):
         try:
-            rent_or_language_element = WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, f"//select[@id='vehicle-select']/option[text()='{config.rent_or_language}']"))
-            )
-            rent_or_language_element.click()
+            ).click()
         except:
             pass
     def select_location(self, location):
@@ -63,10 +62,9 @@ class SeleniumDriver():
             self.last_date = datetime.strptime(self.last_date, '%Y-%m-%d').date()
             while self.first_date < self.last_date:
                 try:
-                    find_date = self.driver.find_element_by_xpath(f"//*[contains(text(), '{str(self.first_date)}')]")
+                    find_date = self.driver.find_element(By.XPATH, f"//*[contains(text(), '{str(self.first_date)}')]")
                     if find_date:
-                        find_date_button = find_date.find_element_by_xpath(f"//*[text()='Välj']")
-                        find_date_button.click()
+                        find_date.find_element(By.XPATH, f"//*[text()='Välj']").click()
                         return False
                 except:
                     pass
