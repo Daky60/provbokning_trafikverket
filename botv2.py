@@ -61,10 +61,9 @@ class SeleniumDriver():
             print("Something went wrong. Check config or report on Github")
     def select_exam_type(self):
         try:
-            exam_type_element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, f"//*[text()='{(config.exam)}']"))
-            )
-            exam_type_element.find_element(By.XPATH, '..').click()
+            exam_element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='examination-type-select']/option[text()='{config.exam}']"))
+            ).click()
         except NoSuchElementException:
             print("Could not find element. Check config or report on Github")
         except:
