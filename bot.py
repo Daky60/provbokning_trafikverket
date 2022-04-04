@@ -29,9 +29,8 @@ class SeleniumDriver():
     def select_exam_type(self):
         try:
             exam_element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, f"//*[text()='{(config.exam)}']"))
-            )
-            exam_element.find_element(By.XPATH, '..').click()
+                EC.presence_of_element_located((By.XPATH, f"//select[@id='examination-type-select']/option[text()='{config.exam}']"))
+            ).click()
         except:
             pass
     def select_rent_or_language(self):
