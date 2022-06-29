@@ -26,6 +26,7 @@ Jag har inte hunnit skriva en guide specifikt för den men om du vill testa skri
 Om du vill vara lite snäll, Swisha gärna en slant :) 073 554 71 85  
 Kontakta inte mig per telefon utan gör det helst via Discord Daky#6387  
 Jag kommer förmodligen ignorera ditt försök att nå mig på telefon  
+Vill du att jag hittar en tid åt dig, lägg till mig på discord. Jag tar betalt för den tjänsten.
 
 ---
 
