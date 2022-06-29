@@ -3,6 +3,15 @@ Ett skript som automatiskt söker efter förarprov och reserverar dem i 15 minut
 
 ---
 
+## Donationer & Hjälp
+Om du vill vara lite snäll, Swisha gärna en slant :) 073 554 71 85  
+Kontakta inte mig per telefon utan gör det helst via Discord Daky#6387  
+Jag kommer förmodligen ignorera ditt försök att nå mig på telefon  
+Vill du att jag hittar en tid åt dig, lägg till mig på discord. Jag tar betalt för den tjänsten.  
+Tillhör du en trafikskola eller liknande så kan jag sälja en färdigpaketerad lösning med minimalt med pill. Supporteras i 6 månader från köp  
+
+---
+
 ## Bot.py
 Denna skript är lite enklare och vad den gör är att den söker efter tider och när den väl hittat en så reservas tiden i 15 minuter.  
 Om du redan har en tid så kommer den nya tiden inte reserveras då detta kräver inloggning.  
@@ -20,13 +29,7 @@ Ett ljud kommer spelar upp i cirka en minut och sen stängs allting ned. Trafikv
 Jag har inte hunnit skriva en guide specifikt för den men om du vill testa skriptet ändå behöver du:  
 1. BankID  
 2. Telefonnummer & mail registrerat hos trafikverket när du loggar in  
----
 
-## Donationer & Hjälp
-Om du vill vara lite snäll, Swisha gärna en slant :) 073 554 71 85  
-Kontakta inte mig per telefon utan gör det helst via Discord Daky#6387  
-Jag kommer förmodligen ignorera ditt försök att nå mig på telefon  
-Vill du att jag hittar en tid åt dig, lägg till mig på discord. Jag tar betalt för den tjänsten.
 
 ---
 
