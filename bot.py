@@ -10,10 +10,16 @@ chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 import time
 import config
 from playsound import playsound
+from selenium.webdriver.chrome.options import Options
+
+opt = Options()
+opt.add_experimental_option("prefs", { 
+    "profile.default_content_setting_values.geolocation": 2, 
+  })
 
 class SeleniumDriver():
     def __init__(self):
-        self.driver = webdriver.Chrome('chromedriver', options=chrome_options)
+        self.driver = webdriver.Chrome('chromedriver', options = opt)
         self.driver.get('https://fp.trafikverket.se/boka/#/licence')
         self.driver.implicitly_wait(0.1)
         self.continue_running = True
