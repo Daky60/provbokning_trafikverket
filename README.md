@@ -5,7 +5,7 @@ Hitta lediga provtider hos trafikverket och boka dem automatiskt på https://www
 
 ---
 
-Kontakt via discord vid eventuella frågor: Daky6387  
 Gratisversionen erbjuds ej längre  
+Kontakt via discord vid eventuella frågor: Daky6387  
 
 ---
