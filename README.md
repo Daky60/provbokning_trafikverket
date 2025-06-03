@@ -1,6 +1,6 @@
-# https://www.snabbuppkorning.se/   Betaltjänst (BETA)  
+# https://www.snabbuppkorning.se/  
 Behöver du boka körprov eller kunskapsprov hos trafikverket?  
-Hitta lediga provtider hos trafikverket och boka dem automatiskt på https://www.snabbuppkorning.se/ med hjälp av vår bot.  
+Hitta lediga provtider hos trafikverket och boka dem automatiskt på https://www.snabbuppkorning.se/ med hjälp av vår tjänst  
 
 
 ---
